@@ -1,4 +1,4 @@
-#SimpleMsg API
+# SimpleMsg API
 
 1. Ensure `cargo` is installed
 2. Use `cargo run` to deploy the service
