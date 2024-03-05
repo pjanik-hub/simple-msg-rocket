@@ -2,6 +2,7 @@
 name = "simple-msg-rocket"
 version = "0.1.0"
 edition = "2021"
+authors = ["philip"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -9,3 +10,9 @@ edition = "2021"
 rocket_okapi = { version = "=0.8.0", features = ["swagger", "rapidoc"] }
 rocket = "=0.5.0"
 serde = "1.0"
+mysql = "*"
+dotenvy = "0.15.7"
+
+[dependencies.rocket_db_pools]
+version = "0.1.0"
+features = ["sqlx_mysql"]

@@ -1,0 +1,5 @@
+[default]
+port = 5432
+
+[default.databases.simple_msg]
+url = "/database/database.mysql"
