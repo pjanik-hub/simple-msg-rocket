@@ -1,5 +1,2 @@
-[default]
-port = 5432
-
 [default.databases.simple_msg]
-url = "/database/database.mysql"
+url = "mysql://root:password@localhost:3306/simple_msg"

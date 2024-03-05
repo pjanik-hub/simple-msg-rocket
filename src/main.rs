@@ -1,10 +1,9 @@
 use dotenvy::dotenv;
 use rocket::get;
-use rocket_db_pools::sqlx::{self, database, Row};
+use rocket_db_pools::sqlx::Row;
 use rocket_db_pools::{Connection, Database};
 use rocket_okapi::settings::UrlObject;
 use rocket_okapi::{rapidoc::*, swagger_ui::*};
-use std::env;
 
 #[derive(Database)]
 #[database("simple_msg")]
@@ -12,7 +11,7 @@ struct DB(sqlx::MySqlPool);
 
 #[get("/<id>")]
 async fn read(mut db: Connection<DB>, id: i64) -> Option<String> {
-    sqlx::query("SELECT content FROM logs WHERE id = ?")
+    sqlx::query("SELECT content FROM user WHERE id = ?")
         .bind(id)
         .fetch_one(&mut **db)
         .await
@@ -23,8 +22,6 @@ async fn read(mut db: Connection<DB>, id: i64) -> Option<String> {
 #[rocket::main]
 async fn main() {
     dotenv().ok();
-
-    let database_url = env::var("DATABASE_URL").expect("DATABASE_URL is not set!");
 
     let _ = rocket::build()
         .attach(DB::init())
