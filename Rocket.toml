@@ -1,2 +1,2 @@
 [default.databases.simple_msg]
-url = "mysql://root:password@localhost:3306/simple_msg"
+url = "mysql://root:password@127.0.0.1:3306/simple_msg"
